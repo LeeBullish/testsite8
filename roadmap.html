@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Hash Pimps</title>
+    <style>
+       
+    
+
+        
+         #roadmap ul ul li:hover::after, #roadmap ul ul li.show-description::after {
+        opacity: 1;
+        visibility: visible;
+    }
+   #roadmap ul ul li::after {
+        /* ... */
+        opacity: 0;
+        visibility: hidden; /* Add this line */
+        transition: opacity 0.3s ease-in, visibility 0.3s ease-in; /* Add visibility */
+    }
+
+    /* Add the new class to control visibility on mobile devices */
+    #roadmap ul ul li.show-description::after {
+        opacity: 1;
+        visibility: visible;
+    }
+
+          /* ... */
+    #roadmap ul ul li {
+        color: #ffffff;
+        line-height: 1.6;
+        position: relative; /* Add this line */
+    }
+
+    #roadmap ul ul li::after {
+        content: "";
+        position: absolute;
+        background-color: #ff69b4;
+        color: #000;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease-in;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap; /* Add this line to prevent wrapping */
+        z-index: 100;
+    }
+
+    #roadmap ul ul li:hover {
+        color: #ff69b4;
+        transition: color 0.3s ease-in;
+    }
+
+    #roadmap ul ul li:hover::after {
+        content: attr(data-desc); /* Add this line */
+        opacity: 1;
+    }
+
+        #roadmap ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        #roadmap h3 {
+            color: #ff69b4;
+            text-align: center;
+            margin-top: 20px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        #roadmap ul ul {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+            margin-bottom: 20px;
+        }
+
+        #roadmap ul ul li {
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        #roadmap ul ul li:hover {
+            color: #ff69b4;
+            transition: color 0.3s ease-in;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- (navigation content unchanged) -->
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="roadmap.html">Roadmap</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="pimp-casino.html">Pimp Casino</a></li>
+                <li><a href="staking-rewards.html">Staking & Rewards</a></li>
+                <li><a href="advertisement-section.html">Advertisement Section</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="faq-support.html">FAQ & Support</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h1>Hash Pimps roadmap</h1>
+            <h2 style="font-size: 10px; cursor: pointer;" onmouseover="this.style.fontSize='20px';" onmouseout="this.style.fontSize='16px';">(Hover over to expand with more details)</h2>
+            <!-- Add key highlights, news, and countdown timer here -->
+        </section>
+        
+        <section id="roadmap">
+            
+            <ul>
+                <li>
+                    <h3>Pre drop 3</h3>
+                    <ul>
+                        <li data-desc="Once you are reading this its already launched, but we will continously improve this site">Website development</li>
+                        <li data-desc="Calculate your airdrop in the staking&rewards section! Pimp coins will be primarily distrubuted through airdrops primarily to our holders, find out more in the tokenomics paper in the about section!">$pimp coin airdrop</li>
+                        
+                        <li data-desc="Increased comminity interaction/ communication and social media presence plus networking">Community building</li>
+                        <li data-desc="With this website will be included several demo games, we will work towards turning these into live games starting with an incentivised testing phase">Pimp casino launch</li>
+                        <li></li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Drop 3</h3>
+                    <ul>
+                        <li data-desc="Individually drawn themed pimps all with their own unique traits, whitelists will be given out largely based on pimp and vip pass holdings which will be announced more specifcally closer to the time (price tba)."> 50 themed pimps</li>
+                        <li data-desc="This portion of the mint will be used to buy $pimp coins and add them to the staking pool to boost rewards for holders"> 20% of mint boosting staking pool</li>
+                        <li></li>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <h3>Pre drop 4</h3>
+                    <ul>
+                        <li data-desc="Calculate your rewards in the staking section! Further details can be found in the tokenomics paper in the about section">Staking enabled for nft holders</li>
+                        <li data-desc="We will continue to both improve current games and add new ones over time!">Expansion of the Pimp Casino</li>
+                        <li data-desc="">Exclusive NFT airdrops for holders</li>
+                        <li data-desc="">Collaboration with artists and influencers</li>
+                        <li></li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Drop 4</h3>
+                    <ul>
+                        <li data-desc="We will release trait nft's which you will be able to piece together to build your own pimp by combining them with a base! The traits will have varying rarities">Build you own pimp</li>
+                        <li data-desc="We will be airdropping trait nft's to our holders based on many factors such as how many pimps/ vip passes you own and which pimps">Trait nft's airdropped to holders</li>
+                        <li data-desc="Some rare traits will be available to purchase with $pimp coins!">Traits sold for $pimp coins</li>
+                        <li data-desc="Some traits will be available to win through giveaways we will host! some will be public and some holders only">Trait giveaways</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Pre drop 5</h3>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <img src="pimpinh aint easy.jpg" alt="A description of the image" width="300">
+        <p>&copy; 2023 Hash Pimps. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const roadmapItems = document.querySelectorAll('#roadmap ul ul li');
+    
+            roadmapItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    this.classList.toggle('show-description');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

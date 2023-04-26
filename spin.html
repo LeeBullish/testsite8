@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wheel Spin Gambling Game Demo</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <style>
+    /* Add the styling of the second piece of code here */
+ 
+
+   
+
+    @keyframes glow {
+        from {
+            text-shadow: 0 0 3px #ff69b4, 0 0 5px #ff69b4, 0 0 10px #ff69b4, 0 0 15px #ff69b4;
+        }
+        to {
+            text-shadow: 0 0 10px #ff69b4, 0 0 15px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff69b4;
+        }
+    }
+
+    .wheel-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 10px;
+    }
+
+</style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="pimp-casino.html">Pimp Casino</a></li>
+            <li><a href="staking-rewards.html">Staking & Rewards</a></li>
+            <li><a href="advertisement-section.html">Advertisement Section</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="faq-support.html">FAQ & Support</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="home">
+        <h1>Welcome to Hash Pimps</h1>
+        <!-- Add key highlights, news, and countdown timer here -->
+        <nav>
+            <ul>
+                <li><a href="balloon.html">Game 1</a></li>
+                <li><a href="spin.html">Game 2</a></li>
+                <li><a href="game3.html">Game 3</a></li>
+                <li><a href="game4.html">Game 4</a></li>
+            </ul>
+        </nav>
+    </section>
+</head>
+<body>
+  <h1>Wheel Spin Gambling Game Demo</h1>
+
+  <div class="game-container">
+    <div class="wheel-container">
+      <canvas id="wheelCanvas" width="300" height="300"></canvas>
+    </div>
+
+    <div class="game-info">
+      <p>Demo points: <span id="demo-points">1000</span></p>
+      <p>Total profit: <span id="total-profit">0</span></p>
+      <p>1% fee on winnings: <span id="fee">0</span></p>
+    </div>
+
+    <div class="betting-container">
+      <label for="bet-size">Select your bet size:</label>
+      <select name="bet-size" id="bet-size">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
+    </div>
+
+    <button id="spin-button" onclick="spinWheel()">Spin the Wheel</button>
+  </div>
+  <div class="main-wrapper">
+    <footer>
+        <img src="pimpinh aint easy.jpg" alt="A description of the image" width="300">
+        <p>&copy; 2023 Hash Pimps. All rights reserved.</p>
+      </div>
+
+</body>
+</html>

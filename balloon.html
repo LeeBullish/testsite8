@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Hash Pimps</title>
+    <style>
+        /* Add the styling of the second piece of code here */
+       
+        .balloons-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+    
+        .balloon {
+            background-color: #832161;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: transparent;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            animation: balloon-glow 2s ease-in-out infinite alternate;
+        }
+    
+        @keyframes balloon-glow {
+            from {
+                box-shadow: 0 0 5px #832161, 0 0 10px #832161, 0 0 15px #832161;
+            }
+            to {
+                box-shadow: 0 0 10px #832161, 0 0 20px #832161, 0 0 30px #832161;
+            }
+        }
+    
+        .balloon:hover {
+            background-color: #ff69b4;
+            transform: scale(1.1);
+        }
+    
+        .popped {
+            background-color: transparent;
+            color: transparent;
+            cursor: default;
+            animation: pop 0.2s forwards;
+        }
+    
+        @keyframes pop {
+            100% {
+                transform: scale(0);
+            }
+        }
+    
+        .popped.show-symbol {
+            color: #ff69b4;
+            animation: reveal-symbol 0.2s forwards;
+        }
+    
+        @keyframes reveal-symbol {
+            0% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    
+        .bet-input {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+    
+        .bet-input input, .bet-input select {
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            font-size: 16px;
+            border: 1px solid #832161;
+            background-color: #1b1b1b;
+            color: #ff69b4;
+            border-radius: 5px;
+            outline: none;
+            width: 100%;
+    max-width: 300px;
+}
+
+.bet-input button {
+    padding: 5px 15px;
+    font-size: 16px;
+    border: 1px solid #832161;
+    background-color: #832161;
+    color: #ff69b4;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+.bet-input button:hover {
+    background-color: #ff69b4;
+}
+
+.reward-display {
+    font-size: 18px;
+    color: #ff69b4;
+    text-align: center;
+    margin-bottom: 10px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@media screen and (max-width: 480px) {
+    .bet-input {
+        flex-direction: column;
+    }
+
+    .bet-input input, .bet-input select, .bet-input button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="roadmap.html">Roadmap</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="pimp-casino.html">Pimp Casino</a></li>
+                <li><a href="staking-rewards.html">Staking & Rewards</a></li>
+                <li><a href="advertisement-section.html">Advertisement Section</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="faq-support.html">FAQ & Support</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="home">
+            <h1>Welcome to Hash Pimps</h1>
+            <!-- Add key highlights, news, and countdown timer here -->
+            <nav>
+                <ul>
+                    <li><a href="balloon.html">Game 1</a></li>
+                    <li><a href="spin.html">Game 2</a></li>
+                    <li><a href="game3.html">Game 3</a></li>
+                    <li><a href="game4.html">Game 4</a></li>
+                </ul>
+            </nav>
+        </section>
+    </main>
+    
+
+    <!-- The second piece of code starts here -->
+    <div id="balloon-pop">
+        <!-- Add the content of the second piece of code here -->
+    </head>
+    <body>
+    <h1>Hashpimps Balloon Pop</h1>
+    <div class="bet-input">
+        <input type="number" id="bet-amount" placeholder="Bet amount" step="0.01">
+    
+        <select id="num-balloons">
+            <option value="">Select number of balloons</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button id="place-bet">Place Bet</button>
+    </div>
+    <div class="reward-display" id="reward-display">Demo Points: 1000</div>
+    <div class="reward-display" id="losses-display">Losses: 0</div>
+    <div class="reward-display" id="fees-display">Fees Collected: 0</div>
+    <div class="balloons-container" id="balloons-container"></div>
+    </div>
+    <script>
+        // Add the JavaScript of the second piece of code here
+        const placeBetButton = document.getElementById('place-bet');
+    const betAmountInput = document.getElementById('bet-amount');
+    const numBalloons = document.getElementById('num-balloons');
+    const balloonsContainer = document.getElementById('balloons-container');
+    const rewardDisplay = document.getElementById('reward-display');
+    const lossesDisplay = document.getElementById('losses-display');
+    const feesDisplay = document.getElementById('fees-display');
+
+    let demoPoints = 1000;
+    let totalProfit = 0;
+    let feesCollected = 0;
+
+    function updateRewardDisplay() {
+        rewardDisplay.textContent = `Demo Points: ${demoPoints.toFixed(2)}`;
+    }
+
+    function updateProfitDisplay() {
+        lossesDisplay.textContent = `Total Profit: ${totalProfit.toFixed(2)}`;
+    }
+
+    function updateFeesDisplay() {
+        feesDisplay.textContent = `Fees Collected: ${feesCollected.toFixed(2)}`;
+    }
+
+    updateRewardDisplay();
+    updateProfitDisplay();
+    updateFeesDisplay();
+
+    placeBetButton.addEventListener('click', () => {
+    const betAmount = parseFloat(betAmountInput.value);
+    const betAmountRounded = parseFloat(betAmount.toFixed(2));
+    if (betAmountInput.value === '' || numBalloons.value === '') {
+        alert('Please enter a bet amount and select the number of balloons.');
+    } else if (betAmount <= 0) {
+        alert("Please enter a positive bet amount.");
+    } else if (betAmount !== betAmountRounded) {
+        alert("Please enter a bet amount with up to 2 decimal places.");
+    } else if (betAmount > demoPoints) {
+        alert("You don't have enough demo points for this bet.");
+    } else {
+        placeBetButton.disabled = true;
+        betAmountInput.disabled = true;
+        numBalloons.disabled = true;
+        for (let i = 0; i < parseInt(numBalloons.value); i++) {
+            const balloon = document.createElement('div');
+            balloon.classList.add('balloon');
+            balloon.dataset.balloonIndex = i;
+            balloon.addEventListener('click', popBalloon);
+            balloonsContainer.appendChild(balloon);
+        }
+    }
+});
+
+
+    function popBalloon(event) {
+        const balloon = event.target;
+        const chosenIndex = parseInt(balloon.dataset.balloonIndex);
+        const totalBalloons = parseInt(numBalloons.value);
+const winningOdds = 1 / totalBalloons;
+const isWinner = Math.random() < winningOdds;
+
+
+    balloon.classList.add('popped');
+    balloon.removeEventListener('click', popBalloon);
+
+    const betAmount = parseFloat(betAmountInput.value);
+demoPoints -= betAmount;
+
+if (isWinner) {
+    const rewardMultiplier = totalBalloons;
+    const winnings = betAmount * rewardMultiplier;
+    const fee = winnings * 0.01;
+    demoPoints += winnings - fee;
+    feesCollected += fee;
+    updateRewardDisplay();
+    updateFeesDisplay();
+    totalProfit += winnings - betAmount - fee;
+    updateProfitDisplay();
+} else {
+    totalProfit -= betAmount;
+    updateProfitDisplay();
+}
+
+
+    updateRewardDisplay();
+    // Reset the game
+    setTimeout(() => {
+        placeBetButton.disabled = false;
+        betAmountInput.disabled = false;
+        numBalloons.disabled = false;
+        balloonsContainer.innerHTML = '';
+    }, 1000);
+}
+    </script>
+    <div class="main-wrapper"></div>
+<footer>
+    <img src="pimpinh aint easy.jpg" alt="A description of the image" width="300">
+    <p>&copy; 2023 Hash Pimps. All rights reserved.</p>
+</footer>
+</body>
+
+</html>

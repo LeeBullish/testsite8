@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Category', 'Percentage'],
+          ['Hashpimp + VIP pass holders', 60],
+          ['LP rewards', 20],
+          ['Treasury', 10],
+          ['Hbar NFT community airdrop', 10]
+        ]);
+
+        var options = {
+          title: 'Initial Supply Distribution',
+          colors: ['#4285F4', '#EA4335', '#FBBC05', '#34A853']
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <style>
+        /* Add custom styles for paragraphs */
+        #text-section p {
+            margin-bottom: 1.5em;
+
+            
+        }
+    </style>
+    <title>Hash Pimps</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="roadmap.html">Roadmap</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="pimp-casino.html">Pimp Casino</a></li>
+                <li><a href="staking-rewards.html">Staking & Rewards</a></li>
+                <li><a href="advertisement-section.html">Advertisement Section</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="faq-support.html">FAQ & Support</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h1>Welcome to Hash Pimps</h1>
+            <!-- Add key highlights, news, and countdown timer here -->
+        </section>
+        <nav>
+            <ul>
+                <li><a href="Whitepaper.html">Whitepaper</a></li>
+                <li><a href="Tokenomics.html">$Pimp tokenomics paper</a></li>
+            </ul>
+        </nav>
+        <section id="text-section">
+            <h2>$PIMP coin tokenomics whitepaper</h2>
+            <h3>Abstract</h3>
+            <p>The HashPimps NFT Project proudly presents the Pimp Coin, an innovative utility token engineered to reward participants within the Pimp ecosystem. This whitepaper elaborates on the tokenomics of the Pimp Coin, encompassing aspects such as airdrops, staking rewards, VIP Pass incentives, and liquidity pool farming rewards. The Pimp Coin is designed to strike a balance between token releases and token burns, paving the way for sustainable growth within the HashPimps ecosystem.
+                </p>
+                <h4>Introduction</h4>
+                <p>The HashPimps NFT Project has conceived the Pimp Coin to establish a robust and sustainable ecosystem for its users. This upcoming utility token incentivizes participation, engagement, and long-term value creation within the HashPimps community. The Pimp Coin will distribute rewards through various channels, including airdrops, staking, VIP Pass incentives, and liquidity pool farming rewards.</p>
+                
+                <h5>Initial supply (Total 666,666 Pimp coins) </h5>
+                <p>Hashpimp + vip pass holders 60%, Lp rewards 20%, Treasury 10%, hbar nft community airdrop 10%</p>
+                <div style="display: flex; justify-content: center;">
+                    <div id="piechart" style="width: 400px; height: 300px;"></div>
+            <h5></h5>
+                <h5></h5>
+                <p></p>
+                <h5></h5>
+                <p></p>
+                <h5></h5>
+                <p></p>
+                <h5></h5>
+                <p></p>
+        </section>
+    </main>
+    <div class="main-wrapper"></div>
+    <footer>
+        <img src="pimpinh aint easy.jpg" alt="A description of the image" width="300">
+        <p>&copy; 2023 Hash Pimps. All rights reserved.</p>
+    </footer>
+</body>
+</html>
