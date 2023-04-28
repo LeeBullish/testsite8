@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rarity Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #selected-edition-image {
+            max-width: 300px;
+            max-height: 300px;
+            border: 5px solid #555;
+            border-radius: 10px;
+            display: none;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rarity Calculator</h1>
+    <form id="rarity-form">
+        <label for="edition">Edition:</label>
+        <input type="number" id="edition" name="edition" min="1" required>
+        <br>
+        <button type="submit">Calculate Rarity</button>
+    </form>
+    <h2>Selected Edition:</h2>
+    <img id="selected-edition-image" src="" alt="Selected Edition">
+    <h2>Trait Rarity:</h2>
+    <pre id="trait-rarity"></pre>
+    <h2>Overall NFT Rarity:</h2>
+    <pre id="nft-rarity"></pre>
+
+
+    <script>
+         function calculateTraitRarity(metadata, chosenEdition) {
+        let traitCounts = {};
+
+        for (const nft of metadata) {
+            for (const attribute of nft.attributes) {
+                let trait = attribute.trait_type + '|' + attribute.value;
+
+                if (!traitCounts.hasOwnProperty(trait)) {
+                    traitCounts[trait] = 0;
+                }
+
+                traitCounts[trait]++;
+            }
+        }
+
+        return traitCounts;
+    }
+
+    function calculateNftRarity(nfts, traitScores) {
+        let nftScores = [];
+        for (const nft of nfts) {
+            let score = 0;
+            for (const attribute of nft.attributes) {
+                let trait = attribute.trait_type + '|' + attribute.value;
+                score += traitScores[trait];
+            }
+            nftScores.push({ name: nft.name, score: score });
+        }
+
+        nftScores.sort((a, b) => a.score - b.score);
+
+        let nftRanks = nftScores.map((nftScore, index) => {
+            return { name: nftScore.name, score: nftScore.score, rank: index + 1 };
+        });
+
+        return nftRanks;
+    }
+
+    function formatTraitScores(traitCounts) {
+        let formattedScores = [];
+        for (const trait in traitCounts) {
+            let [traitType, traitValue] = trait.split('|');
+            formattedScores.push(`${traitType}: ${traitValue} (Score: ${traitCounts[trait]})`);
+        }
+        return formattedScores.join('\n');
+    }
+
+    function showSelectedEditionImage(edition) {
+        const img = document.createElement('img');
+        img.src = edition + '.png';
+        img.alt = 'Edition ' + edition;
+        img.className = 'edition-image';
+
+        const imgContainer = document.getElementById('edition-image');
+        imgContainer.innerHTML = '';
+        imgContainer.appendChild(img);
+    }
+
+    async function fetchMetadata() {
+        try {
+            const response = await fetch("metadata.json");
+            if (!response.ok) {
+                throw new Error("Failed to load metadata.json");
+            }
+            return await response.json();
+        } catch (error) {
+            alert("Error loading metadata.json: " + error.message);
+            return null;
+        }
+    }
+
+    document.getElementById("rarity-form").addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        const edition = document.getElementById("edition").value;
+
+        const metadata = await fetchMetadata();
+
+        if (metadata) {
+            const nfts = metadata.filter(nft => nft.edition.toString() === edition);
+
+            const traitScores = calculateTraitRarity(metadata, edition);
+            const nftRanks = calculateNftRarity(nfts, traitScores);
+
+            document.getElementById("trait-rarity").textContent = formatTraitScores(traitScores);
+            document.getElementById("nft-rarity").textContent = JSON.stringify(nftRanks, null, 2);
+            showSelectedEditionImage(edition);
+        }
+    });
+    </script>
+    
+</body>
+</html>
